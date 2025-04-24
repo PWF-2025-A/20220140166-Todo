@@ -19,11 +19,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/todo', [TodoController::class, 'index'])->name('todo.index');
+    Route::get('/todo', [TodoController::class, 'store'])->name('todo.store');
     Route::patch('/todo/create', [TodoController::class, 'update'])->name('todo.create');
     Route::delete('/todo', [TodoController::class, 'edit'])->name('todo.edit');
 
     
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+    Route::resource('todo', TodoController::class)->except(['show']);
 });
 
 require __DIR__.'/auth.php';
