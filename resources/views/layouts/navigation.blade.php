@@ -15,7 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.index')">{{__('Todo') }} </x-nav-link>
+                    <x-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.index')">
+                        {{__('Todo') }} 
+                    </x-nav-link>
+                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                         {{ __('Category') }} 
+                    </x-nav-link>
                     @can('admin')
                          <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                              {{ __('User') }}
@@ -81,6 +86,10 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('todo.index')" :active="request()->routeIs('todo.index')">
                 {{ __('Todo') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
+                {{ __('Category') }}
             </x-responsive-nav-link>
 
             @can('admin')
