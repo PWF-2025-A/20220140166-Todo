@@ -15,9 +15,10 @@ class TodoController extends Controller
         //dd($todos);
         //return view('todo.index');
     
-        $todos = Todo::where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-        $todos = Todo::with('category')->where('user_id', Auth::id())->orderBy('created_at', 'desc')->get();
-
+         $todos = Todo::with('category') 
+            ->where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         $todosCompleted = Todo::where('user_id', auth::user()->id)
          ->where('is_complete', true)
